@@ -53,3 +53,7 @@ class StudentResource:
             return
 
         self.collection.insert_many(students)
+
+    def delete_student_by_email(self, email: str):
+        result = self.collection.delete_many({EMAIL: email})
+        return result.deleted_count
